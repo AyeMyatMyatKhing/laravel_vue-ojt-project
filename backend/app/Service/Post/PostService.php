@@ -25,17 +25,17 @@ class postService implements PostServiceInterface
     /** 
      * get post list
      */
-    public function getPostList()
+    public function getPostList($searchData)
     {
-       return $this->postDao->getPostList();
+       return $this->postDao->getPostList($searchData);
     }
 
     /**
      * guest post
      */
-    public function guestPost()
+    public function guestPost($searchData)
     {
-        return $this->postDao->guestPost();
+        return $this->postDao->guestPost($searchData);
     }
 
     /**
@@ -49,10 +49,10 @@ class postService implements PostServiceInterface
     /**
      * search data
      */
-    public function search($searchData)
-    {
-        return $this->postDao->search($searchData);
-    }
+    // public function search($searchData)
+    // {
+    //     return $this->postDao->search($searchData);
+    // }
 
     /**
      * find post for update
@@ -82,5 +82,6 @@ class postService implements PostServiceInterface
     {
         return $this->postDao->getDetail($id);
     }
+
 }
 

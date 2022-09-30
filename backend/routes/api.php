@@ -20,6 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('users', UserController::class);
-Route::apiResource('posts', PostController::class);
+Route::post('login' , [UserController::class , 'login']);
+Route::get('/' , [PostController::class , 'guestPost']);
+
+// Route::group(['prefix' => 'post' , 'middleware' => 'auth:sanctum'], function() {
+    
+// });
+// Route::apiResource('users', UserController::class);
+// Route::apiResource('posts', PostController::class);
 

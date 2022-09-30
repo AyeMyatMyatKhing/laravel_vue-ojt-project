@@ -99,4 +99,26 @@ class UserController extends Controller
     {
         //
     }
+
+    public function login(Resquest $request) {
+        $crededntial = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        if (Auth::attempt([$credential])) {
+            $success = true;
+            $message = "User login successfully";
+        }
+        else {
+            $success = false;
+            $message = "Unauthorized";
+        }
+
+        $response = [
+            'success' => $success,
+            'message' => $message
+        ];
+
+        return response()->json($response);
+    }
 }

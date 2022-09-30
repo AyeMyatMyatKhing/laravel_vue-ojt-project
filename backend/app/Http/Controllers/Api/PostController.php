@@ -16,6 +16,12 @@ class PostController extends Controller
         $this->postService = $post_service_interface;
     }
 
+    public function guestPost(Request $request){
+        $searchData = $request->search_data;
+        $posts = $this->postService->guestPost($searchData);
+        return response()->json($posts);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +29,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

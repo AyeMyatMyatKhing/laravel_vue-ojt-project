@@ -8,16 +8,16 @@ interface PostServiceInterface
     public function storeCollectData($data);
 
     //get post list
-    public function getPostList();
+    public function getPostList($searchData);
     
     //guest post
-    public function guestPost();
+    public function guestPost($searchData);
 
     //delete post
     public function deletePost($id);
 
     //search data
-    public function search($searchData);
+    // public function search($searchData);
 
     //find data for update
     public function findPostById($id);
