@@ -1,0 +1,52 @@
+.nav-title {
+    font-size: 30px;
+}
+
+.navbar-nav {
+    font-weight: bold;
+}
+
+/** post list **/
+.search-item input[name="search_data"] {
+    width: 300px;
+}
+
+.search-item {
+    display: flex;
+}
+
+.form-inline {
+    display: inline-flex;
+    width: 60%;
+}
+
+.postList-btn .btn {
+    width: 105px;
+}
+
+.post-list .btn {
+    width: 70px;
+}
+
+/** login **/
+
+.card {
+    width: 500px;
+    margin: 80px auto;
+}
+
+.login-form {
+    margin: 15px 8px;
+}
+
+.input {
+    margin-bottom: 15px;
+}
+
+.login-btn {
+    margin-top: 15px;
+}
+
+
+
+
