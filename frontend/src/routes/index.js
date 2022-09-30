@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import postList from '../pages/post/PostList'
-import login from '../pages/login'
+import login from '../pages/user/login'
 
 const routes = [
     {

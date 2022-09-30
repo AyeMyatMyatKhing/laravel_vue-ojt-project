@@ -25,9 +25,7 @@ class UserSeeder extends Seeder
             'address' => 'No9/B,53th street,Yangon',
             'dob' => '1999-01-10',
             'created_user_id' => 1,
-            'updated_user_id' => 1,
-            'created_at'=>'2022-06-02 10:27:49',
-            'updated_at' => '2021-06-02 10:27:49'
+            'created_at' => now(),
         ]);
 
         DB::table('users')->insert([
@@ -39,9 +37,7 @@ class UserSeeder extends Seeder
             'address' => 'No11/B,51th street,Yangon',
             'dob' => '1999-04-13',
             'created_user_id' => 1,
-            'updated_user_id' => 1,
-            'created_at'=>'2022-06-02 10:27:49',
-            'updated_at' => '2021-06-02 10:27:49'
+            'created_at' => now(),
         ]);
 
         DB::table('users')->insert([
@@ -53,9 +49,7 @@ class UserSeeder extends Seeder
             'address' => 'No11,43th street,Yangon',
             'dob' => '1988-01-19',
             'created_user_id' => 1,
-            'updated_user_id' => 1,
-            'created_at'=>'2022-06-02 10:27:49',
-            'updated_at' => '2021-06-02 10:27:49'
+            'created_at'=> now(),
         ]);
 
         DB::table('users')->insert([
@@ -67,9 +61,7 @@ class UserSeeder extends Seeder
             'address' => 'No9/B,53th street,Yangon',
             'dob' => '1995-06-17',
             'created_user_id' => 1,
-            'updated_user_id' => 1,
-            'created_at'=>'2022-06-02 10:27:49',
-            'updated_at' => '2021-06-02 10:27:49'
+            'created_at'=> now(),
         ]);
     }
 }

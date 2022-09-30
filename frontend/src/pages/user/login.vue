@@ -28,6 +28,6 @@
     </div>
 </template>
 
-<style src="../assets/css/style.css"></style>
+<style src="../../assets/css/style.css"></style>
 
-<script src="../services/login.js"></script>
+<script src="../../services/user/login.js"></script>
