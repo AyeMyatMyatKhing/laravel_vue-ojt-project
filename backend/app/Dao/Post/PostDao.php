@@ -27,30 +27,17 @@ class PostDao implements PostDaoInterface
 	/**
 	 * get post list
 	 */
-	public function getPostList($searchData)
+	public function getPostList()
 	{
 		if(auth()->check() && auth()->user()->type == 0)
 		{
-			$posts = Post::orderBy('id', 'desc');
-			if ($searchData) {
-				$posts = $posts->where('title', 'like', "%" . $searchData . "%")
-							   ->orWhere('description', 'like', "%" . $searchData . "%")
-							   ->orWhereHas('user', function ($user) use ($searchData) {
-				  			     $user->where('name', 'like', "%" . $searchData . "%");});
-			}
-			return $posts->simplePaginate(10);
+			$posts = Post::orderBy('id', 'desc')->simplePaginate(10);
 		}
 		else
 		{
-			$posts = Post::where('created_user_id' , auth()->user()->id);
-			if ($searchData) {
-				$posts = $posts->where('title', 'like', "%" . $searchData . "%")
-				               ->orWhere('description', 'like', "%" . $searchData . "%")
-				               ->orWhereHas('user', function ($user) use ($searchData) {
-					              $user->where('name', 'like', "%" . $searchData . "%");});
-			}
-			return $posts->simplePaginate(10)->withQueryString();
+			$posts = Post::where('created_user_id' , auth()->user()->id)->simplePaginate(10)->withQueryString();
 		}
+		return $posts;
 	}
 
 	/**
@@ -58,14 +45,15 @@ class PostDao implements PostDaoInterface
 	 */
 	public function guestPost($searchData)
 	{
-		$posts = Post::where('status', '=' , 1);
+		$posts = Post::with('user')->where('status', 1);
 		if ($searchData) {
 			$posts = $posts->where('title', 'like', "%" . $searchData . "%")
 						   ->orWhere('description', 'like', "%" . $searchData . "%")
 						   ->orWhereHas('user', function ($user) use ($searchData) {
-							$user->where('name', 'like', "%" . $searchData . "%");});
+							$user->where('name', 'like', "%" . $searchData . "%");
+					  });
 		}
-		return $posts->simplePaginate(10)->withQueryString();
+		return $posts->simplePaginate(10);
 	}
 
 	/**
@@ -79,16 +67,16 @@ class PostDao implements PostDaoInterface
 		$data->delete();
 	}
 
-	// public function search($searchData)
-	// {
-	// 	$searchResult = Post::where('title', 'like', "%" . $searchData . "%")
-	// 	                      ->orWhere('description', 'like', "%" . $searchData . "%")
-	// 	                      ->orWhereHas('user', function ($user) use ($searchData) {
-	// 		                        $user->where('name', 'like', "%" . $searchData . "%");
-    //                           })->simplePaginate(10)->withQueryString();
+	public function search($searchData)
+	{
+		$searchResult = Post::where('title', 'like', "%" . $searchData . "%")
+		                      ->orWhere('description', 'like', "%" . $searchData . "%")
+		                      ->orWhereHas('user', function ($user) use ($searchData) {
+			                        $user->where('name', 'like', "%" . $searchData . "%");
+                              })->simplePaginate(10)->withQueryString();
 
-	// 	return $searchResult;
-	// }
+		return $searchResult;
+	}
 
 	/**
 	 * find post for update

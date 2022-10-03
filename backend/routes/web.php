@@ -14,7 +14,7 @@ Route::post('posts/store/collectdata', [PostController::class, 'storeCollectData
 Route::get('posts/update/updateCollectData', [PostController::class, 'updateCollectData']);
 Route::put('posts/update/updateConfirm/{id}' , [PostController::class, 'updatePost']);
 Route::get('/', [PostController::class, 'guestPost']);
-// Route::get('/search_posts', [PostController::class, 'search']);
+Route::get('/search_posts', [PostController::class, 'search']);
 Route::get('posts/showdetail/{id}' , [PostController::class , 'show'])->name('postdetail');
 Route::post('/uploadpost' , [PostController::class , 'uploadFile']);
 Route::get('/downloadpost' , [PostController::class , 'exportFile']);

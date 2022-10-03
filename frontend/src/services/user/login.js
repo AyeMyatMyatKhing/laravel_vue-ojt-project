@@ -18,7 +18,7 @@ export default {
                     }).then(response=>{
                         console.log(response.data);
                         if (response.data.success) {
-                            this.$router.go('/postList')
+                            this.$router.push({name: 'postList'})
                         }
                         else {
                             response.data.message

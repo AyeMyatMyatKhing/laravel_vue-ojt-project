@@ -8,18 +8,17 @@ use App\Contract\Service\Post\PostServiceInterface;
 
 class PostController extends Controller
 {
-
-    protected $postService;
+    private $postService;
 
     public function __construct(PostServiceInterface $post_service_interface)
     {
         $this->postService = $post_service_interface;
     }
 
-    public function guestPost(Request $request){
-        $searchData = $request->search_data;
-        $posts = $this->postService->guestPost($searchData);
-        return response()->json($posts);
+    public function guestPost(){
+        $search = \Request::get('searchData');
+        $posts = $this->postService->guestPost($search);
+        return response()->json(['posts' => $posts]);
     }
 
     /**
@@ -29,7 +28,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+        $posts = $this->postService->getPostList();
+        return response()->json($posts);
     }
 
     /**

@@ -25,21 +25,20 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $searchData = $request->search_data;
-        $posts = $this->postService->getPostList($searchData);
-        return view('post.list' , compact('posts' , 'searchData'));
+        $posts = $this->postService->getPostList();
+        return view('post.list' , compact('posts'));
     }
 
     /**
      * guset post 
      */
-    public function guestPost(Request $request)
+    public function guestPost()
     {
-        $searchData = $request->search_data;
-        $posts = $this->postService->guestPost($searchData);
-        return view('post.list' , compact('posts' , 'searchData'));
+        $posts = $this->postService->guestPost();
+        //dd($posts);
+        return view('post.list' , compact('posts'));
     }
 
     /**
@@ -151,12 +150,12 @@ class PostController extends Controller
     /**
      * search post
      */
-    // public function search(Request $request)
-    // {
-    //     $searchData = $request->search_data;
-    //     $posts = $this->postService->search($searchData);
-    //     return view('post.list',compact('posts' , 'searchData'));
-    // }
+    public function search(Request $request)
+    {
+        $searchData = $request->search_data;
+        $posts = $this->postService->search($searchData);
+        return view('post.list',compact('posts' , 'searchData'));
+    }
 
     /**
      * upload file

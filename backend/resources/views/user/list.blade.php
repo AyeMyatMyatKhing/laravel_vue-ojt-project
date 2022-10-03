@@ -6,7 +6,7 @@
                 @if (Session('successAlert'))
                     <div class="alert alert-success alert-dismissable show fade">
                         <strong>{{Session('successAlert')}}</strong>
-												<button class="close" data-dismiss="alert">&times;</button>
+						<button class="close" data-dismiss="alert">&times;</button>
                     </div>
                 @endif
             </div>

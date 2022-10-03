@@ -8,7 +8,7 @@ interface PostDaoInterface
     public function storeCollectData($data);
 
     //get post list
-    public function getPostList($searchData);
+    public function getPostList();
 
     //guest post
     public function guestPost($searchData);
@@ -17,7 +17,7 @@ interface PostDaoInterface
     public function deletePost($id);
 
     //search data
-    // public function search($searchData);
+    public function search($searchData);
 
     //find data for update
     public function findPostById($id);

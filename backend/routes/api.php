@@ -21,7 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('login' , [UserController::class , 'login']);
-Route::get('/' , [PostController::class , 'guestPost']);
+Route::get('/guestPost' , [PostController::class , 'guestPost']);
+Route::get('post' , [PostController::class , 'index']);
 
 // Route::group(['prefix' => 'post' , 'middleware' => 'auth:sanctum'], function() {
     

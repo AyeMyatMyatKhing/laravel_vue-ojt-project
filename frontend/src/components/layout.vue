@@ -5,9 +5,9 @@
         <a class="navbar-brand" href="#"> <h1 class="nav-title">SCM BulletinBoard</h1> </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="navbar-nav first-item mr-auto">
-             <router-link to="" class="nav-link">Users</router-link>
+             <router-link to="/user" class="nav-link">Users</router-link>
              <router-link to="" class="nav-link">User</router-link>
-             <router-link to="/" class="nav-link">Posts</router-link>
+             <router-link to="/post" class="nav-link">Posts</router-link>
           </div>
           <div class="navbar-nav second-item ml-auto">
             <router-link to="/login" class="nav-link">Login</router-link>

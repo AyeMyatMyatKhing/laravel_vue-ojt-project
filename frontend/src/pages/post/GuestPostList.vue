@@ -17,27 +17,26 @@
                         <th scope="col">Post Description</th>
                         <th scope="col">Posted User</th>
                         <th scope="col">Posted Date</th>
-                        <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody v-if="posts.length > 0">
-                    <tr v-for="post in posts" :key="post.id">
+                <tbody v-if="posts.data.length > 0">
+                    <tr v-for="post in posts.data" :key="post.id">
                         <td>{{ post.title }}</td>
                         <td>{{ post.description }}</td>
-                        <td>{{ post.created_user_id }}</td>
-                        <td>{{ post.created_datetime }}</td>
-                        <td class="text-center">
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger mx-2">Delete</button>
-                        </td>
+                        <td>{{ post.user.name }}</td>
+                        <td>{{ moment(post.created_datetime).format('MM-DD-YYYY') }}</td>
                     </tr>
                 </tbody>
                 <tbody v-else>
                     <tr class="text-center">
-                        <td colspan="5">There is no data</td>
+                        <td colspan="4">There is no data</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </template>
+
+<style src="../../assets/css/style.css"></style>
+
+<script src="../../services/post/guestPost.js"></script>

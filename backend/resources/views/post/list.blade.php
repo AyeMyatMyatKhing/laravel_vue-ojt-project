@@ -14,9 +14,9 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <form action="" class="form-inline my-2 my-lg-0" method="GET" autocomplete="off">
+            <form action="{{ url('/search_posts') }}" class="form-inline my-2 my-lg-0" method="GET" autocomplete="off">
                 @csrf
-                <input class="form-control mr-sm-2" name="search_data" type="search" placeholder="Search" value="{{ $searchData }}" style="width: 300px" />
+                <input class="form-control mr-sm-2" name="search_data" type="search" placeholder="Search" style="width: 300px" />
                 <button class="btn btn-outline-success " type="submit">Search</button>
             </form>
         </div>
